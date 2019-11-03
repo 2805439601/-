@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/nineDraw.js"></script>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        li
+        {
+            list-style: none;
+            width: 31.33%;
+            height: 85px;
+            line-height: 85px;
+            margin: 1%;
+            float: left;
+            text-align: center;
+            color:#333;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 10px;
+            position: relative;
+        }
+        li div
+        {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.3);
+        }
+        li:nth-child(5)
+        {
+            background-color: orange;
+            cursor: pointer;
+        }
+        img
+        {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        ul
+        {
+            width: 500px;
+            height: 300px;
+            margin:100px auto;
+            border: 1px solid red;
+            background-color: rgb(96, 60, 221);
+            padding:5px;
+            box-sizing: border-box;
+        }
+        .active
+        {
+            background-color: rgba(0, 0, 0,0);
+        }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li class="abc ">
+            <div class="item active">
+                <img src="./images/奖品1.png" alt="">
+            </div>
+        </li>
+        <li class="abc">
+             <div class="item">再接再厉</div>
+        </li>
+        <li class="abc">
+            <div class="item">
+                <img src="./images/奖品3.png" alt="">
+            </div>
+        </li>
+        <li class="abc">
+           <div class="item">
+                <img src="./images/奖品5.png" alt="">
+           </div>
+        </li>
+        <li class="abc" onclick="action()">
+            <div class="item">
+                <img src="./images/组 41.png" alt="">
+            </div>
+        </li>
+        <li class="abc">
+            <div class="item">再接再厉</div>
+        </li>
+        <li class="abc">
+            <div class="item">再接再厉</div>
+        </li>
+        <li class="abc">
+            <div class="item">
+                <img src="./images/奖品2.png" alt="">
+            </div>
+        </li>
+        <li class="abc">
+            <div class="item">
+                <img src="./images/奖品4.png" alt="">
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
+<script>
+    //初始化
+    var draw = new moduleDraw({
+        childNode:'.item', /* 抽奖元素 */
+        activeClass:'active', /* 选中的样式类名 */
+        // isRand:true, /* 随机抽奖 */
+        time:2, /* 使用随机抽奖需要传入时间（默认3秒）*/
+        circle:2, /* 顺序抽奖圈数（默认10圈）*/
+        speed:50, /* 抽奖的执行速度（默认50）*/
+    });
+    function action()
+    {
+        let rand = parseInt(Math.random() * 8)
+        //执行抽奖
+        draw.action(3,function(index){
+            alert('下标：'+ index)
+        })
+    }
+</script>

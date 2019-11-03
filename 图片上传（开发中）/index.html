@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件上传</title>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="./js/uploadFile.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="a"></div>
+    <input type="file" id="upload">
+    <div class="draw_content"></div>
+</body>
+</html>
+<script>
+    var upload = new UploadFile({   
+        el:'#upload',
+        // suffix:['jpg'],
+        maxFile:'0',
+        size:1,
+        specs:['800*800','342*325','148*93'],
+        drag:{
+            el:'.draw_content',
+            // width:500,
+            height:200,
+            enterLineColor:'red',
+        },
+        dragChildEl:{
+            width:'150',
+            height:'150',
+            margin:'10px'
+        },
+        // isRepeat:true,
+        handleError:function(error){}
+    })
+</script>

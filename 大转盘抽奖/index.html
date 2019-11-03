@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/draw.js"></script>
+    <style>
+        .box
+        {
+            width: 500px;
+            height: 500px;  
+            margin:50px auto;
+            background-color: red;
+            border-radius: 50%;
+            background: url('./images/201810251055392381540436139238.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        img
+        {
+            position: absolute; 
+            width: 100px;
+            top: 24%;
+            right: 47.5%;
+            transform: rotate(-25deg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="box" >
+            
+        </div>
+        <img class="r" onclick="rotate()" src="./images/playbtn.png" alt="">
+    </div>
+</body>
+</html>
+
+<script>
+    //初始化
+    var draw = new Draw({
+            el:'.box', /* 旋转元素 */
+            isOuter:true,
+            transition:'3', /* 过渡时间 */
+            count:'6', /* 商品数量 */
+            circle:10, /* 默认需要旋转的圈数 */
+            deviation: 30, /* 偏移值 */
+    })
+    function rotate()
+    {
+        let num = parseInt(Math.random() * 5)
+        draw.draw_romate(num,function(index){
+            alert(index)
+        })
+    }   
+    
+</script>
