@@ -1,0 +1,34 @@
+<!--pages/home/home.wxml-->
+<!--搜索框  <view class='search {{fixed==true?fixed:""}}' >-->
+<view class='search {{isBg==true?"isBg":""}}'>
+     <view class='search_box' >
+        <image src='../image/iconfont/searchs.png' class="search_icon"></image>
+        <input class='search_inp' placeholder='搜索' disabled="disabled" bindtap="getfocus"></input>
+    </view>
+</view>
+<!--轮播图-->
+<swiper indicator-dots="{{indicatorDots}}" class="swiper"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+    indicator-color="#000" indicator-active-color="#d7533e">
+    <block wx:for="{{bannersList.content}}" wx:key="{{index}}">
+        <swiper-item>
+        <!--
+            <navigator url="{{item.link}}" hover-class="navigator-hover">
+                <image src="{{item.url}}" class="slide-image" />
+            </navigator>
+        -->
+            <image mode="aspectFill" src="{{item.show_url}}" class="slide-image" data-id="{{item.link_url}}" bindtap="goDetail"/>
+        </swiper-item>
+    </block>
+</swiper>
+ <!-- 商铺介绍 -->
+  <view class="mell" bindtap='goMell' data-id="{{mell.content[0].link_url}}">
+    <image mode="aspectFill" src='{{mell.content[0].show_url}}'></image>
+  </view>
+  <!--九宫格分类 -->
+  <view class='Class'>
+    <view class='classList' wx:for='{{categorysList}}' data-id="{{item.id}}" bindtap='goClass' wx:key="{{index}}">
+      <image src='{{item.icon}}'></image>
+      <text>{{item.title}}</text>
+    </view>
+  </view>

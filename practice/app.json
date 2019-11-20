@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/assortment/assortment",
+    "pages/cart/cart",
+    "pages/user/user",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff4546",
+    "navigationBarTitleText": "汇商美业11",
+    "navigationBarTextStyle": "white" 
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#666666",
+    "selectedColor": "#F1404B",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "pages/image/footer/tabbar_home_unselect@1x.png",
+        "selectedIconPath": "pages/image/footer/tabbar_home_select@1x.png"
+      },
+      {
+        "pagePath": "pages/assortment/assortment",
+        "text": "分类",
+        "iconPath": "pages/image/footer/tabbar_category_unselect@1x.png",
+        "selectedIconPath": "pages/image/footer/tabbar_category_select@1x.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "pages/image/footer/tabbar_shop_unselect@1x.png",
+        "selectedIconPath": "pages/image/footer/tabbar_shop_select@1x.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/image/footer/tabbar_mine_unselect@1x.png",
+        "selectedIconPath": "pages/image/footer/tabbar_mine_select@1x.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx5cabaa8ce89c93f4"
+  ]
+}

@@ -1,0 +1,277 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.4",
+	"appid": "wx5cabaa8ce89c93f4",
+	"projectname": "%E6%B1%87%E5%95%86%E7%BE%8E%E4%B8%9A",
+	"cloudfunctionTemplateRoot": "",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 29,
+			"list": [
+				{
+					"id": 0,
+					"name": "个人中心",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "店铺",
+					"pathName": "pages/store/store",
+					"query": "store_id=27",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "店铺列表",
+					"pathName": "pages/store_list/store_list",
+					"query": "id=5",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "商铺详情",
+					"pathName": "pages/store_detail/store_detail",
+					"query": "id=16",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "收藏商品",
+					"pathName": "pages/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人资料",
+					"pathName": "pages/user_info/user_info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/assortment/assortment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "浏览历史",
+					"pathName": "pages/Browsinghistory/Browsinghistory",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "手机号绑定",
+					"pathName": "pages/mobileBind/mobileBind",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增收货地址",
+					"pathName": "pages/Newaddress/Newaddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址列表",
+					"pathName": "pages/Collectionaddress/Collectionaddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store_detail/store_detail",
+					"pathName": "pages/store_detail/store_detail",
+					"query": "id=16",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "商铺",
+					"pathName": "pages/store/store",
+					"query": "store_id=16",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "历史",
+					"pathName": "pages/userHistory/userHistory",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏店铺",
+					"pathName": "pages/collection/collection",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "商品详情",
+					"pathName": "pages/shop_detail/shop_detail",
+					"query": "id=187",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏商品",
+					"pathName": "pages/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择商业城",
+					"pathName": "pages/shop_city/shop_city",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我要入驻",
+					"pathName": "pages/settled/settled",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "门店入驻信息",
+					"pathName": "pages/enter/enter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择门店",
+					"pathName": "pages/store_check/store_check",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mendian",
+					"pathName": "pages/store_edit/store_edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/order_confirm/order_confirm",
+					"query": "cart_ids=673",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/pay/pay",
+					"pathName": "pages/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "社交号绑定",
+					"pathName": "pages/Bind/Bind",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 28,
+					"name": "pages/return_sales/return_sales",
+					"pathName": "pages/return_sales/return_sales",
+					"query": "",
+					"scene": 1037,
+					"referrerInfo": {
+						"appId": "wx5cabaa8ce89c93f4",
+						"extraData": "{\"id\":\"1\"}"
+					}
+				},
+				{
+					"id": 29,
+					"name": "pages/return_batch/return_batch",
+					"pathName": "pages/return_batch/return_batch",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 30,
+					"name": "pages/mobileBind/mobileBind",
+					"pathName": "pages/mobileBind/mobileBind",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

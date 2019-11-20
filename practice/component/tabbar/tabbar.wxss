@@ -1,0 +1,36 @@
+.container {
+  width: 100%rpx;
+  height: 100%rpx;
+  font-size: 32rpx;
+}
+ 
+ 
+.menu-item {
+  width: 24%;
+  float: left;
+  border-right: 1px solid rgb(200, 200, 200);
+  text-align: center;
+  padding-top: 8px;
+}
+.menu-item2{
+  border-right:none;
+}
+ 
+.img {
+  width: 23px;
+  height: 23px;
+  display: block;
+  margin: auto;
+}
+ 
+.clear {
+  clear: both;
+}
+ 
+.tab-bar {
+  background-color:rgb(243, 243, 243);
+  opacity: .8;
+  position: fixed;
+  width: 100%;
+  /* padding: 0px 2%; */
+}
