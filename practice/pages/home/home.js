@@ -21,6 +21,7 @@ Page({
         bannersList: [], //轮播列表
         layoutList: [], //布局列表
         mell: [],
+        guessList: []
     },
 
     /**
@@ -30,6 +31,7 @@ Page({
 
         // 初始化首页数据
         this.getHomeData()
+        this.getGuessData()
     },
     // 搜索框跳转
     getfocus: function() {
@@ -53,7 +55,7 @@ Page({
                 var bannersList = res.data.data.banners
                 var mell = res.data.data.mell
                 var layoutList = res.data.data.layout
-                console.log(res)
+                    // console.log(res)
                     // setData 函数用于将数据从逻辑层发送到视图层（异步），同时改变对应的 this.data 的值（同步）。
                 that.setData({
                     categorysList: categorysList,
@@ -62,6 +64,28 @@ Page({
                     mell: mell,
                     // hiddenLoading: true
                 })
+            }
+        })
+    },
+    // 首页猜你喜欢
+    getGuessData: function() {
+        let that = this
+        wx.request({
+            url: url + 'recommended/home', //仅为示例，并非真实的接口地址
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            data: {
+                method: "miniapp",
+                type: "index"
+            },
+            success: function(res) {
+                // console.log(res.data.data);
+                that.setData({
+                    guessList: res.data.data,
+
+                })
+
             }
         })
     },
@@ -140,7 +164,7 @@ Page({
                 isBg: false
             })
         }
-        console.log(1);
+        // console.log(e.scrollTop);
 
 
     },

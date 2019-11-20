@@ -22,13 +22,31 @@
     </block>
 </swiper>
  <!-- 商铺介绍 -->
-  <view class="mell" bindtap='goMell' data-id="{{mell.content[0].link_url}}">
+<view class="mell" bindtap='goMell' data-id="{{mell.content[0].link_url}}">
     <image mode="aspectFill" src='{{mell.content[0].show_url}}'></image>
-  </view>
-  <!--九宫格分类 -->
-  <view class='Class'>
+</view>
+<!--九宫格分类 -->
+<view class='Class'>
     <view class='classList' wx:for='{{categorysList}}' data-id="{{item.id}}" bindtap='goClass' wx:key="{{index}}">
-      <image src='{{item.icon}}'></image>
-      <text>{{item.title}}</text>
+        <image src='{{item.icon}}'></image>
+        <text>{{item.title}}</text>
     </view>
-  </view>
+</view>
+<!--layout -->
+  <view class="layout">
+    <view class="layoutOut" wx:for='{{layoutList}}' wx:key="{{index}}">
+        <text>{{item.title}}</text>
+        <view class="layoutIn" wx:for='{{item.content}}' wx:key="{{item}}"  >
+            <image src="{{item.show_url}}" mode="aspectFit|aspectFill|widthFix"></image>
+        </view> 
+    </view>
+</view>
+<!--猜你喜欢-->
+<view class="guess" >
+    <view class="guess_title" >猜你喜欢</view>
+    <view class="guess_con" wx:for='{{guessList}}' wx:key="{{index}}">
+        <image class="guess_img"  src="{{item.image}}" mode="aspectFit|aspectFill|widthFix" ></image>
+        <view class="guess_tro" >{{item.title}}</view>
+        <text class="guess_price" >￥{{item.price}}</text>
+    </view>
+</view>

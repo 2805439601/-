@@ -39,26 +39,3 @@
   display: flex;
   align-items: center;
 }
-.assortment {
-  display: flex;
-  padding-top: 132rpx;
-}
-.assortment .assortment_left {
-  width: 20%;
-}
-.assortment .assortment_left .LeftCon {
-  margin: 80rpx 0;
-  padding-left: 10rpx;
-  border-left: 10rpx solid #f1404b;
-  display: flex;
-  justify-content: center;
-  color: #999;
-  font-size: 12px;
-}
-.assortment .assortment_left .LeftCon:nth-of-type(1) {
-  margin-top: 30rpx;
-}
-.assortment .assortment_right {
-  flex: 1;
-  background-color: black;
-}

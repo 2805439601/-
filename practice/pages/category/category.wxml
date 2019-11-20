@@ -1,0 +1,9 @@
+<!--pages/category/category.wxml-->
+
+<!--搜索框  <view class='search {{fixed==true?fixed:""}}' >-->
+<view class='search {{isBg==true?"isBg":""}}'>
+     <view class='search_box' >
+        <image src='../image/iconfont/searchs.png' class="search_icon"></image>
+        <input class='search_inp' placeholder='搜索' disabled="disabled" bindtap="getfocus"></input>
+    </view>
+</view>

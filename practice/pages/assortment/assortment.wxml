@@ -1,2 +1,22 @@
 <!--pages/assortment/assortment.wxml-->
-<text>pages/assortment/assortment.wxml</text>
+
+<!--搜索框  <view class='search {{fixed==true?fixed:""}}' >-->
+<view class='search {{isBg==true?"isBg":""}}'>
+     <view class='search_box' >
+        <image src='../image/iconfont/searchs.png' class="search_icon"></image>
+        <input class='search_inp' placeholder='搜索' disabled="disabled" bindtap="getfocus"></input>
+    </view>
+</view>
+
+<!--分类内容 <view class="assortment_right" wx:for='{{item.items}}' wx:key='{{item}}'>
+        
+    </view>-->
+<view class="assortment">
+    <view class="assortment_left">
+        <view class='LeftCon'  wx:for='{{assortmentList}}' wx:key="{{index}}">
+            <text >{{item.title}}</text>
+        </view>
+    
+    </view>
+    
+</view>
