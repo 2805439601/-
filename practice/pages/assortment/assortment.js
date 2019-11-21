@@ -9,7 +9,13 @@ Page({
      */
     data: {
         isBg: false,
-        assortmentList: []
+        assortmentList: {},
+        rightData: [],
+        // 初始化
+        ind: 0,
+        id: 0,
+        items: [],
+        data: {}
     },
 
     /**
@@ -17,6 +23,7 @@ Page({
      */
     onLoad: function(options) {
         this.getAssortmentData()
+            // this.getIndex()
     },
     //获取分类数据
     getAssortmentData: function() {
@@ -33,16 +40,35 @@ Page({
 
             success: function(res) {
                 console.log(res.data.data);
+                // console.log(that.assortmentList[that.ind].items)
+                // console.log(res.data.data.parent_id[items]);
                 that.setData({
                     assortmentList: res.data.data,
-
+                    // rightData: res.data.data.parent_id[items]
                 })
 
             }
         })
 
     },
+    // 左边传参给右边数据
+    getIndex: function(e) {
+        let that = this
+        console.log(e.currentTarget.dataset.id)
 
+        // console.log(e.currentTarget.dataset.index)
+
+        // console.log(that.assortmentList[index].items);
+        // console.log(this.data[e.currentTarget.dataset.id].items);
+
+        this.setData({
+            ind: e.currentTarget.dataset.index,
+            id: e.currentTarget.dataset.id,
+
+        })
+
+
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
