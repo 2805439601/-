@@ -9,8 +9,8 @@
 </view>
 
 <!--分类内容 <view class="assortment_right" wx:for='{{item.items}}' wx:key='{{item}}'>
-            
-        </view>-->
+        
+    </view>-->
 <view class="assortment">
     <!-- 左边数据 -->
     <view class="assortment_left">
@@ -21,18 +21,19 @@
     </view>
     <!-- 右边数据 -->
     <!-- <view class="assortment_right" wx:for='{{assortmentList}}' wx:key='{{index}}' wx:if="{{index==ind}}">
-            <view class="RightCon" wx:for='{{item.items}}' wx:key='{{item}}'>
+        <view class="RightCon" wx:for='{{item.items}}' wx:key='{{item}}'>
+            {{item.title}}
+            <view class="Del" wx:for='{{item.items}}' wx:key="{{items}}">
                 {{item.title}}
-                <view class="Del" wx:for='{{item.items}}' wx:key="{{items}}">
-                    {{item.title}}
-                    <image class="" src="{{item.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-    
-                    </image>
-                </view>
+                <image class="" src="{{item.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+
+                </image>
             </view>
-        </view> -->
+        </view>
+    </view> -->
     <view class="assortment_right">
-        <view class="RightCon" wx:for='{{assortmentList[ind].items}}' wx:key='{{index}}'>
+        <!-- <view class="RightCon" wx:for='{{rightData}}' wx:key='{{index}}'> -->
+        <view class="RightCon" wx:for='{{assortmentList[ind].items}' wx:key='{{index}}'>
             {{item.title}}
             <view class="Del" wx:for='{{item.items}}' wx:key="{{items}}">
                 {{item.title}}

@@ -1,2 +1,38 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class='search'>
+    <view class="search_top">
+        <view class="search_tleft">
+            <view class="search_img">
+                <image src='../image/iconfont/searchs.png'></image>
+            </view>
+            <input class='search_inp' placeholder='搜索商品' confirm-type='search' bindinput='input_txt' bindconfirm='btn_search' value='{{searchTxt}}' focus="{{inputShowed}}" />
+            <view class="search_sc" bindtap="clearInputEvent">
+                <image src='../image/iconfont/sssc.png'></image>
+            </view>
+        </view>
+        <view class="search_tright" bindtap="btn_search">搜索</view>
+    </view>
+
+    <view class="search_bottom">
+        <view class="search_ba">
+            <view class="search_bd">搜索记录</view>
+            <view class="search_baimg" bindtap="deleteHistory" wx:if="{{isHide}}">
+                <image src='../image/iconfont/del.png'></image>
+            </view>
+        </view>
+        <view class="search_history" wx:if="{{!isHide}}">无搜索记录</view>
+        <view class="search_bb">
+            <view class="nh" wx:for="{{history}}" wx:key="{{index}}" bindtap="jilu" data-value="{{item}}">{{item}}
+            </view>
+        </view>
+
+        <view class="search_bd">常用分类</view>
+
+
+
+    </view>
+
+
+
+
+
+</view>

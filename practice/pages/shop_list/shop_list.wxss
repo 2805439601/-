@@ -1,0 +1,57 @@
+/* pages/shop_list/shop_list.wxss */
+@import "../../common/index.wxss";
+@import "../../common/iconfont.wxss";
+
+page{
+  background: #f8f8f8;
+	height: 100%;
+	color: #333;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.container-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+.tabHead {
+  background: #fff;
+  position: relative;
+  width: 100%;
+}
+
+.navList_box {
+  display: flex;
+  padding: 0 32rpx 32rpx 32rpx;
+  font-size: 28rpx;
+  color: #999;
+  background-color: #fff;
+}
+
+.navList {
+  margin-right: 96rpx;
+}
+
+.box_top{
+  width: 446rpx;
+  height: 100rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: auto;
+}

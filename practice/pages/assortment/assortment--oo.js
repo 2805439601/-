@@ -10,6 +10,7 @@ Page({
     data: {
         isBg: false,
         assortmentList: {},
+        rightData: [],
         // 初始化
         ind: 0,
         id: 0,
@@ -38,14 +39,14 @@ Page({
             method: "POST",
 
             success: function(res) {
-                // console.log(res.data.data);
+                console.log(res.data.data);
                 // console.log(that.assortmentList[that.ind].items)
                 // console.log(res.data.data.parent_id[items]);
-                // console.log(res.data.data[that.data.ind]);
                 that.setData({
                     assortmentList: res.data.data,
-                    //若用变量，初始化作用
+                    // 初始化右边的数据
                     // rightData: res.data.data[that.data.ind].items
+                    // rightData: res.data.data[that.ind].items
                     // rightData: res.data.data.parent_id[items]
                 })
 
@@ -67,6 +68,7 @@ Page({
             ind: e.currentTarget.dataset.index,
             id: e.currentTarget.dataset.id,
             // rightData: e.currentTarget.dataset.items
+            // rightData: res.data.data[that.data.ind].items
 
         })
 
