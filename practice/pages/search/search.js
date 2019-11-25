@@ -1,6 +1,7 @@
 // pages/search/search.js
 
 var url = getApp().globalData.url;
+// 需要先定义变量，用于储存数据，放在data初始化中报错
 var searchArray = [];
 Page({
 
@@ -8,17 +9,22 @@ Page({
      * 页面的初始数据
      */
     data: {
+        // 初始化input里面的value值
         searchTxt: '',
+        // 初始化焦点
+        inputShowed: true,
+        // 用于储存缓存历史记录内容
         history: [],
-        isHide: false
-
+        // 初始化隐藏
+        isHide: false,
+        // searchArray: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log(this.data.inputShowed)
+        // console.log(this.data.inputShowed)
         var that = this
         if (wx.getStorageSync("history")) {
             that.setData({
@@ -32,13 +38,33 @@ Page({
             })
         }
     },
+    // 记录每次点击事件
+    jilu(e) {
+        // console.log(e.currentTarget.dataset.value)
 
+        // 储存点击的数据
+        this.setData({
+            searchTxt: e.currentTarget.dataset.value
+        })
+
+        // 搜索确认事件
+        this.btn_search()
+
+    },
     //输入框输入事件
     input_txt: function(e) {
         var that = this;
         // 是用于异步,比如网络请求  this.data 同步
         that.setData({
             searchTxt: e.detail.value.trim()
+        })
+    },
+    // 清除input边框里面的vlaue
+    clearInputEvent: function() {
+        this.setData({
+            searchTxt: '',
+            // 判断是否出现焦点
+            inputShowed: true
         })
     },
     //搜索确认事件
@@ -64,7 +90,6 @@ Page({
 
         // 搜索时同时把数据记录到记录框
         this.onLoad()
-
 
     },
 
