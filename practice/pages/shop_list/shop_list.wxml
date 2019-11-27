@@ -1,50 +1,50 @@
 <!--pages/shop_list/shop_list.wxml-->
 <view class="container">
     <view class='search'>
-      <view class='search_box'>
-        <image src='../image/iconfont/searchs.png'  style="left:{{img_left}}rpx" ></image>
-        <input class='search_inp' placeholder='搜索商品' readonly="readonly" confirm-type='search' value="{{wxSearchData}}" bindconfirm="wxSearchConfirm" bindfocus="inputFocus" bindblur="inputBlur" style="padding-left:{{input_left}}rpx" ></input>
-      </view>
-    </view>
-    
-   <view class="navList_box">
-      <view class="navList" bindtap='titleClick' data-idx='0'>
-        <text class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}">综合排序</text>
-      </view>
-      <view class="navList" bindtap='titleClick' data-idx='1'>
-        <text class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}">销量</text>
-      </view>
-      <view class="navList" bindtap='titleClick' data-idx='2'>
-        <text class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}">价格</text>
-        <text class="filter-tab" wx:if="{{filtertab}}"></text>
-        <text class="filter-up" wx:if="{{filterup}}"></text>
-      </view>
-    </view>
-  <!-- 商品列表 -->
-  <scroll-view class="container-body" scroll-y scroll-top="{{scrolltop}}" style='height:{{windowHeight}}px;' bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="topLoad">
-    <view wx:if="{{list.length>0}}">
-      <block wx:for="{{list}}" wx:key="item">
-        <view class="content_box" bindtap="goDetail" data-id="{{item.id}}">
-          <view class="box_left">
-            <image src='{{item.image}}'></image>
-          </view>
-          <view class="box_right">
-            <view class="box_top">{{item.title}}</view>
-            <view class="box_bottom">
-              <view class="price">¥{{item.price}}</view>
-              <view class="address">{{item.address}}</view>
-            </view>
-          </view>
+        <view class='search_box'>
+            <image src='../image/iconfont/searchs.png' style="left:{{img_left}}rpx"></image>
+            <input class='search_inp' placeholder='搜索商品' readonly="readonly" confirm-type='search' value="{{wxSearchData}}" bindconfirm="wxSearchConfirm" bindfocus="inputFocus" bindblur="inputBlur" style="padding-left:{{input_left}}rpx"></input>
         </view>
-      </block>
-    </view>
-    <view wx:else class="empty">
-      <view class="empty_img">
-        <image src="../image/iconfont/empty.png"></image>
-      </view>
-      <text>抱歉，暂无相关的商品</text>
     </view>
 
-  </scroll-view>
+    <view class="navList_box">
+        <view class="navList" bindtap='titleClick' data-idx='0'>
+            <text class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}">综合排序</text>
+        </view>
+        <view class="navList" bindtap='titleClick' data-idx='1'>
+            <text class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}">销量</text>
+        </view>
+        <view class="navList" bindtap='titleClick' data-idx='2'>
+            <text class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}">价格</text>
+            <text class="filter-tab" wx:if="{{filtertab}}"></text>
+            <text class="filter-up" wx:if="{{filterup}}"></text>
+        </view>
+    </view>
+    <!-- 商品列表 -->
+    <scroll-view class="container-body" scroll-y scroll-top="{{scrolltop}}" style='height:{{windowHeight}}px;' bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading" bindscrolltoupper="topLoad">
+        <view wx:if="{{list.length>0}}">
+            <block wx:for="{{list}}" wx:key="item">
+                <view class="content_box" bindtap="goDetail" data-id="{{item.id}}">
+                    <view class="box_left">
+                        <image src='{{item.image}}'></image>
+                    </view>
+                    <view class="box_right">
+                        <view class="box_top">{{item.title}}</view>
+                        <view class="box_bottom">
+                            <view class="price">¥{{item.price}}</view>
+                            <view class="address">{{item.address}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view wx:else class="empty">
+            <view class="empty_img">
+                <image src="../image/iconfont/empty.png"></image>
+            </view>
+            <text>抱歉，暂无相关的商品</text>
+        </view>
+
+    </scroll-view>
 </view>
 <!-- <loading hidden="{{hiddenLoading}}">正在加载</loading> -->

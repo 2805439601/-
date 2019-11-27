@@ -56,13 +56,14 @@ Page({
     // 左边传参给右边数据
     getIndex: function(e) {
         let that = this
-            // console.log(e.currentTarget.dataset.id)
+
+        // console.log(e.currentTarget.dataset.id)
 
         console.log(e.currentTarget.dataset.items)
 
         // console.log(that.assortmentList[index].items);
         // console.log(this.data[e.currentTarget.dataset.id].items);
-
+        // 储存变量
         this.setData({
             ind: e.currentTarget.dataset.index,
             id: e.currentTarget.dataset.id,
