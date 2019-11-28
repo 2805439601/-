@@ -1,0 +1,47 @@
+<!--待发货  -->
+<template name="Pshipment">
+<view class='no'>
+  <view class="image"><image src="../image/iconfont/zwscdp.png"></image></view>
+  <view>
+    <view>亲~您还没有订单哦</view>
+    <text>快去挑选您喜爱的商品吧</text>
+  </view>
+  <view><button>去逛逛</button></view>
+</view>
+
+<!-- 订单 -->
+<scroll-view>
+<view class='order'>
+  <view class='order_top'>
+    <text>供货商：ABC</text>
+    <text>待付款</text>
+  </view>
+  <view class='order_zhong'>
+    <view class='product_img'>
+      <image></image>
+      <text>退款成功</text>
+    </view>
+    <view class='product_content'>
+      <view>看酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷酷111111111</view>
+      <text>托尾款，s</text>
+    </view>
+  </view>
+  <view class='order_ts'>
+    <view>商家已备货完成，请在规定时间内取货</view>
+    <view>剩余时间7天6小时42分12秒</view>
+  </view>
+  <view class='order_bottom'>
+    <text>23:10:23</text>
+    <text>共1件商品 实付款: ￥<text>1212</text></text>
+  </view>
+  <view class='order_button'>
+    <!-- <button>查看物流</button> -->
+    <button>查看详情</button>
+    <button>删除订单</button>
+    <button id='but'>确认收货</button>
+  </view>
+</view>
+</scroll-view>
+<!-- 订单end -->
+</template>
+<!--全部订单 end -->

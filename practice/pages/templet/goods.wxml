@@ -1,0 +1,54 @@
+<template name="goods">
+<!-- 猜你喜欢 -->
+  <view class='product'>
+    <view class='text c_text'>猜你喜欢</view>
+    <view class='c_tp'>
+      <block wx:for="{{homeList}}" wx:for-item="item" wx:key="{{index}}">
+        
+
+        <view class='c_tpa' wx:if="{{item.ads_type==1}}">
+          <navigator url="/pages/shop_detail/shop_detail?id={{item.id}}">
+          <view class='tp'>
+            <image mode="aspectFill" src='{{item.image}}'></image>
+          </view>
+          <view class='intro'>{{item.title}}</view>
+          <view class='money'>
+            <text>￥{{item.price}}</text>
+          </view>
+          </navigator>
+        </view>
+
+
+        <view class='c_tpa' wx:if="{{item.ads_type==2}}">
+            <view class="c_tw" style="background-color:rgba(241,64,75,1);background-image: url({{item.image}});background-size:cover;" data-id="{{item.id}}" data-type="{{item.type}}" bindtap="goLing">
+              <view class="c_top">
+                <view class="c_twtop"></view>
+                <view class="c_twtops"></view>
+                <text>精选店铺</text>
+              </view>
+              <navigator url="/pages/shop_detail/shop_detail?id={{item.id}}">
+              <button class="c_bottom">
+                查看详情
+              </button> 
+              </navigator>
+            </view>
+        </view>
+
+        <view class='c_tpas' wx:if="{{item.ads_type==3}}">
+          <view class="c_stop">你还对哪些感兴趣</view>
+          <view class="c_sbottom">
+            <view wx:for="{{item.content}}" wx:key="{{index}}">
+              <navigator url="/pages/shop_list/shop_list?keyword={{item}}" hover-class="other-navigator-hover">
+              <button>{{item}}</button>
+              </navigator>
+            </view>
+          </view>
+          
+        </view>
+
+
+      </block>
+    </view>
+  </view>
+
+</template>

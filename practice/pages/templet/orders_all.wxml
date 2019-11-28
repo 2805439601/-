@@ -1,0 +1,26 @@
+<!--交易物流  -->
+<template name="orders_all">
+<scroll-view wx:if="{{pushList.length!==0}}" scroll-y="true" class="jy_scroll" >
+<view class="logistics" wx:for="{{pushList}}" wx:key="{{index}}">
+  <view class="log_time">{{item.created_at}}</view>
+  <view class="log_event">
+    <view class="log_ea">
+      <view>{{item.title}}</view>
+      <view>{{item.created_at}}<view class="hd" wx:if="{{!item.is_read}}"></view></view>
+    </view>
+    <view class="log_eb">
+      <view class="log_ebimg"><image src="{{item.img_url}}"></image></view>
+      <view class="log_ebtext">
+        <view>{{item.alert}}</view>
+        <view>来自{{item.logistics_num}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+</scroll-view>
+<view class="non" wx:else>
+  <view class="no_img"><image src="../image/iconfont/wxx.png"></image></view>
+  <view class="no_text">喔唷！这里还没有任何消息哦~</view>
+</view>
+</template>
+<!--交易物流 end -->

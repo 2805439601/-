@@ -1,15 +1,14 @@
 {
     "pages": [
+        "pages/home/home",
+        
+        "pages/shop_list/shop_list",
+        "pages/shop_detail/shop_detail",
+
         "pages/search/search",
         "pages/assortment/assortment",
-        "pages/home/home",
         "pages/cart/cart",
-        "pages/user/user",
-        "pages/shop_list/shop_list"
-
-
-
-
+        "pages/user/user"
 
     ],
     "window": {

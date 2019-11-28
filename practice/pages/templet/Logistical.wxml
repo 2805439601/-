@@ -1,0 +1,83 @@
+<!--选择商品属性   -->
+<template name="Logistical">
+<view>
+  <view  class="filter-shadow" wx:if="{{showfilter}}" bindtap="hideFilter"></view>
+  <view class="jr" wx:if="{{showfilter}}" >
+    <view class="jr_sp">
+      <view class="gb" bindtap="hideFilter"><image src="../image/iconfont/gb.png"></image></view>
+      
+      <block wx:if="{{shopCheckInfo==null}}">
+        <view class="jr_img">
+          <!-- <image mode="aspectFill" src="{{shopCheckInfo.image}}"></image> -->
+          <image mode="aspectFill" src="{{detail.image[0]}}"></image>
+        </view>
+        <view class="jr_nr">
+          <view class="jr_nra">￥
+            <text>{{detail.price}}</text>
+          </view>
+          <view class="jr_nrc">库存
+            <text>{{detail.stock}}</text>件</view>
+          <view class="jr_nrb">已选:
+            <text wx:for="{{selectItem}}" wx:key="{{index}}">{{item.value}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="jr_img">
+          <image mode="aspectFill" src="{{shopCheckInfo.image}}"></image>
+        </view>
+        <view class="jr_nr">
+          <view class="jr_nra">￥
+            <block wx:for="{{shopCheckInfo.group_price}}" wx:key="{{index}}">
+              <text wx:if="{{item.start <= num && item.end >= num || item.start <= num && item.end == 0}}">{{shopCheckInfo.group_price[index].price}}</text>
+            </block>
+          </view>
+          <view class="jr_nrc">库存
+            <text>{{shopCheckInfo.stock}}</text>件</view>
+          <view class="jr_nrb">已选:
+            <text wx:for="{{selectItem}}" wx:key="{{index}}">{{item.value}}</text>
+          </view>
+        </view>
+      </block>
+
+    </view>
+
+    <scroll-view style="height: 600rpx;" scroll-y>
+      <view class="jr_kd">
+
+        <button wx:for="{{detail.logistics}}" wx:key="{{index}}" data-id="{{detail.store.id}}" data-index="{{index}}" data-type="{{item.type}}" bindtap="getLog" class="{{currentIndex == index?'productActive':'jr_kdbut'}}">{{item.type_name}}</button>
+
+      </view>
+      <view class="jr_xzd" bindtap="storeCheck" wx:if="{{storecheck}}" data-id="{{detail.store.id}}">
+        <view class="jr_ximg">
+          <image src="../image/iconfont/wz.png"></image>
+        </view>
+        <view class="jr_xdz">地址：
+          <text>{{checkstore.address}}</text>
+        </view>
+        <view class="navigator-arrow"></view>
+      </view>
+      <view class="skuBox_class" wx:if="{{sku}}" wx:for="{{sku}}" wx:key="{{n}}" wx:for-index="idx">
+        <text>{{item.title}}</text>
+        <view>
+          <button wx:for="{{item.attr_value}}" wx:key="{{index}}" data-idx="{{idx}}" data-index="{{index}}" data-item="{{item}}" data-isShow="{{item.isShow}}" bindtap="specificationBtn" class="{{subIndex[idx] == index?'productActive':''}}{{item.isShow==false?'noneActive':''}} ">{{item.value}}</button>
+        </view>
+      </view>
+
+      <view class="outStyle">
+        <view class='outStyleText textStyle buttonPaddingStyle'>选择数量</view>
+        <view class='typeStyle sl'>
+          <view bindtap="bindMinus2"  class='sl_j {{minnum >= num ? "noclick" : "nohave"}}' >-</view>
+          <!-- <view class="sl_s">{{num}}</view> -->
+          <input class="sl_s" style="width:{{textWidth}}rpx" type="number" min="1"  bindinput="bindKeyInput" value="{{num}}" contenteditable="true" />
+          <view class="sl_j" bindtap="bindPlus2">+</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="qd">
+      <button bindtap="updatecart" data-id="{{detail.id}}">确定</button>
+    </view>
+  </view>
+</view>
+</template>
+<!--选择商品属性 end -->

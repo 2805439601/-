@@ -26,7 +26,10 @@ Page({
         statusBarHeight: getApp().globalData.statusBarHeight,
         scrolltop: null, //滚动位置
         input_left: 314,
-        img_left: 297
+        img_left: 297,
+        per_page: '', //每页的数据条数
+        total: '', //数据总数
+        meta: ''
     },
 
     /**
@@ -226,7 +229,7 @@ Page({
             },
             success: function(res) {
                 wx.hideLoading();
-
+                // console.log(res);
                 //数据少于20条时，即请求到了最后一页
                 if (res.data.data.list.length < 20) {
                     //记录请求状态，把reqState传值给flag
@@ -234,6 +237,22 @@ Page({
                 } else {
                     var reqState = true;
                 }
+
+                // if (res.data.data.list.length <= total) {
+                //     wx.showToast({
+                //         title: '数据加载完毕',
+                //         icon: 'none',
+                //         duration: 1000
+                //     })
+                // }
+
+                var meta = res.data.data.meta;
+                // console.log(meta);
+                var per_page = meta.per_page;
+                // console.log(that.data.page);
+                var total = per_page * that.data.page;
+                // console.log(total);
+
                 //接收数据，保证每次都拼接上
                 var list = that.data.list.concat(res.data.data.list);
                 // console.log(list)
@@ -243,8 +262,14 @@ Page({
                     list: list,
                     page: nextPage,
                     flag: reqState,
-                    hiddenLoading: true
+                    hiddenLoading: true,
+                    meta: meta,
+                    per_page: per_page,
+                    // total: per_page * page
                 })
+
+                // console.log(that.data.page);
+                // console.log(that.data.per_page);
             }
 
         })
@@ -302,13 +327,21 @@ Page({
 
         }, 1500);
 
+        if (res.data.data.list.length <= total) {
+            wx.showToast({
+                title: '数据加载完毕',
+                icon: 'none',
+                duration: 1000
+            })
+        }
+
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function(e) {
-        // console.log(e)
+        console.log(11)
     },
 
     /**

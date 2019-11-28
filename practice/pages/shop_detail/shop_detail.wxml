@@ -1,0 +1,320 @@
+<view class="hui" catchtouchmove="return" wx:if="{{tankuang}}">
+    <view class="tan" catchtouchmove="return">
+        <view class="tan_text">您尚未登录，请先登录！</view>
+        <view><button class="tan_no" bindtap="cancelLogin" data-id="0">取消</button><button class="tan_yes" bindtap="onLogin" data-id="1">确定</button></view>
+    </view>
+</view>
+<view class="msg" wx:if="{{soldout}}">
+    <!--商品轮播图  -->
+    <!--轮播  -->
+    <swiper style='height:750rpx;width:750rpx;' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="false" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#fff">
+        <block wx:for="{{detail.image}}" wx:key="{{index}}">
+            <swiper-item>
+                <image mode="aspectFill" src="{{item}}" class="slide-image" width="355" height="100%" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!--商品轮播图 end -->
+
+    <!-- 订货定制选择 -->
+    <view class="{{navTop==true?'navpa':''}}">
+        <view class="xz {{navTop==true?'navTop':''}}">
+            <view class="{{navIndex==index?'xia':''}}" wx:for="{{navlist}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="getNav" data-type="{{item.type}}">
+                <text>{{item.type_name}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 订货定制选择 end -->
+
+    <!--商品介绍  -->
+    <view class="sp">
+        <view class="js">
+            <view class="js_a">
+                <view class="js_at">{{detail.title}}</view>
+            </view>
+            <view class="js_b">
+                <button bindtap="collectAdd" data-id="{{detail.id}}" wx:if="{{!isCollect}}">
+                    <image src="../image/iconfont/shoucang.png"></image>
+                    <text>收藏</text>
+                </button>
+                <button bindtap="collectDel" data-id="{{detail.id}}" wx:if="{{isCollect}}">
+                    <image src="../image/iconfont/weishoucang.png"></image>
+                    <text>已收藏</text>
+                </button>
+                <button open-type='share'>
+                    <image src="../image/iconfont/fenxiang.png"></image>
+                    <text>分享</text>
+                </button>
+            </view>
+        </view>
+        <view class="jg">
+            <block wx:if="{{detail.show_price.type==2}}">
+                <view class="jg_a">
+                    <view class="js_ap">￥
+                        <text>{{detail.show_price.price.start_price}}</text>
+                        <text>~</text>
+                        <text>{{detail.show_price.price.end_price}}</text>
+                    </view>
+                    <view class="js_ad">{{detail.show_price.start_num}}件起售</view>
+                </view>
+            </block>
+            <block wx:if="{{detail.show_price.type==1}}">
+                <view class="jg_a">
+                    <view class="js_ap">￥
+                        <text>{{detail.show_price.price}}</text>
+                    </view>
+                    <view class="js_ad">{{detail.show_price.start_num}}件起售</view>
+                </view>
+            </block>
+
+            <block wx:if="{{detail.show_price.type==3}}">
+                <view class="jg_a" wx:for="{{detail.show_price.price}}" wx:key="{{index}}">
+                    <view class="js_ap">￥
+                        <text>{{item.price}}</text>
+                    </view>
+
+                    <view class="js_ad">
+                        {{item.start}}-{{item.end}}件起售
+                    </view>
+
+                    <view class="js_ad">{{item.start}}
+                        <text wx:if="{{item.end!==0}}">-{{item.end}}件</text>
+                        <text wx:if="{{item.end==0}}">件以上</text> 起售
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!--商品介绍 end -->
+
+    <!-- 发货地 -->
+    <view class="fh" wx:if="{{detail.delivery_logistics}}">
+        <text class="fh_a">发货：<text>{{detail.delivery_logistics.delivery_province}}{{detail.delivery_logistics.province_city}}</text></text>
+        <text>配送：<text>{{detail.delivery_logistics.show_shipping}}</text></text>
+    </view>
+    <!-- 发货地 end -->
+
+    <!-- 定制订货 -->
+    <!-- <view class="ys"> -->
+    <!-- 
+    <view class="cus">
+      <view class="time_a jl_bottom">定制能力</view>
+      <view class="cus_b">
+
+        <view class="cus_bf time_bj">
+          <view class="time_a jl_bottom">货品类型:</view>
+          <view class="jl_bottom">大货</view>
+          <view class="jl_bottom">大货</view>
+          <view class="jl_bottom">大货</view>
+        </view>
+
+        <view class="cus_bf time_bj">
+          <view class="time_a jl_bottom">货品类型:</view>
+          <view class="jl_bottom">来样加工</view>
+          <view class="jl_bottom">贴牌加工</view>
+          <view class="jl_bottom">来样加工</view>
+          <view class="jl_bottom">贴牌加工</view>
+        </view>
+
+      </view>
+    </view> -->
+
+
+    <!-- <view class="cus">
+      <view class="number jl_bottom jl_top">
+        <view class="time_a">起订数量</view>
+        <view class="time_bj">500件 预计出货时间10天 </view>
+
+      </view>
+    </view> -->
+
+
+    <!-- <view class="time">
+      <view class="time_a jl_bottom jl_top">其它预计出货时间</view>
+      <view class="time_b">
+        <view class="time_bj" wx:for="{{detail.booking.shipment_time.section_day}}" wx:key="{{index}}">
+          <view>{{item.min}}-{{item.max}}件</view>
+          <view>{{item.day}}天</view>
+        </view>
+      </view>
+    </view> -->
+
+    <!-- </view> -->
+    <!-- 定制订货 end -->
+
+    <!--门店信息  -->
+    <view class="md">
+        <view class="md_a">
+            <view class="md_aimg">
+                <image src="{{detail.store.icon}}"></image>
+            </view>
+            <view class="md_atext">
+                <view class="md_am">{{detail.store.name}}</view>
+                <view class="md_aw">
+                    <image src="../image/iconfont/wz.png"></image>{{detail.store.address}}
+                </view>
+            </view>
+        </view>
+
+        <view class="md_b">
+            <navigator hover-class="other-navigator-hover" url="/pages/store/store?store_id={{detail.store.id}}">
+                <button>进入店铺</button>
+            </navigator>
+        </view>
+
+    </view>
+    <!--门店信息 end -->
+
+    <!--介绍头部  -->
+    <view class='_msg'>
+        <view class="_msg_a"></view>
+        <view class="_msg_b">商品详情</view>
+        <view class="_msg_a"></view>
+    </view>
+    <view>
+        <rich-text nodes="{{detail.details_html}}"></rich-text>
+    </view>
+
+
+
+    <import src="../templet/goods.wxml" />
+    <!-- 猜你喜欢 -->
+    <template is="goods" data="{{homeList}}"></template>
+
+    <view class="zw"></view>
+    <!--购买脚部  -->
+    <view class="footnav">
+        <view class='foot'>
+            <view class="left">
+                <view class='kfu'>
+                    <navigator url="/pages/store/store?store_id={{detail.store.id}}">
+                        <view>
+                            <image src='../image/iconfont/dp.png'></image>
+                        </view>
+                        <view class="kfu_text">店铺</view>
+                    </navigator>
+                </view>
+                <view class='kfu'>
+                    <navigator url="/pages/cart/cart" open-type="switchTab" hover-class="other-navigator-hover">
+                        <view>
+                            <image src='../image/iconfont/cart.png'></image>
+                        </view>
+                        <view class="kfu_text">购物车</view>
+                        <view wx:if="{{gwcnum!==0}}" class="gwc_num">{{gwcnum}}</view>
+                    </navigator>
+                </view>
+                <view class='kfu' bindtap="service">
+                    <view>
+                        <image src='../image/iconfont/kefu.png'></image>
+                    </view>
+                    <view class="kfu_text">客服</view>
+                </view>
+            </view>
+            <view class="right">
+                <view class='bt1' bindtap='titleClick' data-flag="1">加入购物车</view>
+                <view class='btn2' bindtap='titleClick' data-flag="2">立即购买</view>
+            </view>
+
+
+        </view>
+    </view>
+    <!--购买脚部 end -->
+</view>
+
+<view class="msg" wx:else>
+    <view class="guoqi">
+        <view class="guoqi_img">
+            <image src="../image/iconfont/empty.png"></image>
+        </view>
+        <view class="guoqi_text">商品过期不存在</view>
+    </view>
+    <import src="../templet/goods.wxml" />
+    <!-- 猜你喜欢 -->
+    <template is="goods" data="{{homeList}}"></template>
+
+</view>
+
+<view class="fhsy" bindtap="fhsy">
+    <image src="../image/iconfont/fhsy.png"></image>
+</view>
+
+
+<view catchtouchmove='return' class="filter-shadow" wx:if="{{showfilter}}" bindtap="hideFilter"></view>
+<view class="jr" wx:if="{{showfilter}}" catchtouchmove="true">
+    <view class="jr_sp">
+        <view class="gb" bindtap="hideFilter">
+            <image src="../image/iconfont/gb.png"></image>
+        </view>
+
+        <block wx:if="{{shopCheckInfo==null}}">
+            <view class="jr_img">
+                <!-- <image mode="aspectFill" src="{{shopCheckInfo.image}}"></image> -->
+                <image mode="aspectFill" src="{{detail.image[0]}}"></image>
+            </view>
+            <view class="jr_nr">
+                <view class="jr_nra">￥
+                    <text>{{detail.price}}</text>
+                </view>
+                <view class="jr_nrc">库存
+                    <text>{{detail.stock}}</text>件</view>
+                <view class="jr_nrb">已选:
+                    <text wx:for="{{selectItem}}" wx:key="{{index}}">{{item.value}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="jr_img">
+                <image mode="aspectFill" src="{{shopCheckInfo.image}}"></image>
+            </view>
+            <view class="jr_nr">
+                <view class="jr_nra">￥
+                    <block wx:for="{{shopCheckInfo.group_price}}" wx:key="{{index}}">
+                        <text wx:if="{{item.start <= num && item.end >= num || item.start <= num && item.end == 0}}">{{shopCheckInfo.group_price[index].price}}</text>
+                    </block>
+                </view>
+                <view class="jr_nrc">库存
+                    <text>{{shopCheckInfo.stock}}</text>件</view>
+                <view class="jr_nrb">已选:
+                    <text wx:for="{{selectItem}}" wx:key="{{index}}">{{item.value}}</text>
+                </view>
+            </view>
+        </block>
+
+    </view>
+
+    <scroll-view style="height: 600rpx;" scroll-y>
+        <view class="jr_kd">
+
+            <button wx:for="{{detail.logistics}}" wx:key="{{index}}" data-id="{{detail.store.id}}" data-index="{{index}}" data-type="{{item.type}}" bindtap="getLog" class="{{currentIndex == index?'productActive':'jr_kdbut'}}">{{item.type_name}}</button>
+
+        </view>
+        <view class="jr_xzd" bindtap="storeCheck" wx:if="{{storecheck}}" data-id="{{detail.store.id}}">
+            <view class="jr_ximg">
+                <image src="../image/iconfont/wz.png"></image>
+            </view>
+            <view class="jr_xdz">地址：
+                <text>{{checkstore.address}}</text>
+            </view>
+            <view class="navigator-arrow"></view>
+        </view>
+        <view class="skuBox_class" wx:if="{{sku}}" wx:for="{{sku}}" wx:key="{{n}}" wx:for-index="idx">
+            <text>{{item.title}}</text>
+            <view>
+                <button wx:for="{{item.attr_value}}" wx:key="{{index}}" data-idx="{{idx}}" data-index="{{index}}" data-item="{{item}}" data-isShow="{{item.isShow}}" bindtap="specificationBtn" class="{{subIndex[idx] == index?'productActive':''}}{{item.isShow==false?'noneActive':''}} ">{{item.value}}</button>
+            </view>
+        </view>
+
+        <view class="outStyle">
+            <view class='outStyleText textStyle buttonPaddingStyle'>选择数量</view>
+            <view class='typeStyle sl'>
+                <view bindtap="bindMinus" class='sl_j {{minnum >= num ? "noclick" : "nohave"}}'>-</view>
+                <!-- <view class="sl_s">{{num}}</view> -->
+                <input class="sl_s" style="width:{{textWidth}}rpx" type="number" min="1" bindinput="bindKeyInput" value="{{num}}" contenteditable="true" />
+                <view class="sl_j" bindtap="bindPlus">+</view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="qd">
+        <button bindtap="addcart" data-id="{{detail.id}}">确定</button>
+    </view>
+</view>

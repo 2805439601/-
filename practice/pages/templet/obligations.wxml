@@ -1,0 +1,26 @@
+<!--服务消息  -->
+<template name="obligations">
+<scroll-view wx:if="{{pushList}}" scroll-y="true"  class="jy_scroll">
+<view class="logistics">
+  <view class="log_time">今天 10:30</view>
+  <view class="log_event">
+    <view class="log_ea">
+      <view>收藏商品伙拼提醒</view>
+      <view>11:30<view class="hd"></view></view>
+    </view>
+    <view class="log_eb">
+      <view class="log_ebimg"><image></image></view>
+      <view class="log_ebtext">
+        <view>您购买的苹果x手机壳8puls简单的生…订单已签收</view>
+        <view>来自8067454893579</view>
+      </view>
+    </view>
+  </view>
+</view>
+</scroll-view>
+<view class="non" wx:else>
+  <view class="no_img"><image src="../image/iconfont/wxx.png"></image></view>
+  <view class="no_text">喔唷！这里还没有任何消息哦~</view>
+</view>
+</template>
+<!--服务消息 end -->

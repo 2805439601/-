@@ -1,0 +1,48 @@
+<!--售后customer   -->
+<template name="customer">
+456
+<view class='null' wx:if="{{productsArr.length==0}}">
+    <view class='null_box'>
+      <image src='../image/fail.png'></image>
+      <view class='null_box_text'>抱歉！您没有相关的订单信息...</view>
+      <button bindtap='goShop' class='goShop'>去购物</button>
+       <view class='banner_text'>
+ @广州新梦想技术支持
+ </view>
+    </view>
+</view>
+<view class='ordersAll_list' wx:for="{{productsArr}}">
+<!--列表头  -->
+<view class='ordersAll_list_header'>
+  <view class='ordersAll_list_header_num'>
+  订单编号 {{item.order_no}}
+  </view>
+  <view class='ordersAll_list_state'>
+  {{item.status}}
+  </view>
+</view>
+<!--列表头 end -->
+<!--商品信息  -->
+<view class='orderAll_msg' bindtap='orderAll_msg'>
+    <image src='{{item.snap_img}}'></image>
+    <view class='orderAll_msg_con'>
+        <view class='orderAll_msg_name'>
+            {{item.snap_name}}
+        </view>
+        <view class='orderAll_msg_f'>
+              <view class='num'>
+                X{{item.total_count}}
+              </view>
+        </view>
+    </view>
+</view>
+<view class='counted'>
+    <view class='counted_text'>
+          共计商品  合计：￥{{item.total_price}}
+    </view>
+</view>
+
+<!--商品信息 end -->
+</view>
+</template>
+<!--全部订单 end -->
